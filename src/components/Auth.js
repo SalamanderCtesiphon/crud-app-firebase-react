@@ -31,22 +31,23 @@ function Auth() {
   }
 
   return (
-    <div>
-      <input 
-        placeholder='Email...' 
-        type='email'
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <input 
-        placeholder='Password...' 
-        type='password'
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button onClick={signIn}>Sign In</button>
+    <div className='page'>
+      <div className='card'>
+        <button onClick={signInWithGoogle}>Sign In With Google</button>
+        <input 
+          placeholder='Email...' 
+          type='email'
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input 
+          placeholder='Password...' 
+          type='password'
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button onClick={signIn}>Sign In</button>
 
-      <button onClick={signInWithGoogle}>Sign In With Google</button>
-
-      <button onClick={logout} >Logout</button>
+        <button onClick={logout} >Logout</button>
+      </div>
     </div>
   )
 }
