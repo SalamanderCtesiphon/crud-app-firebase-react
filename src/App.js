@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import Auth from './components/Auth';
 import { db } from "./config/firebase"
-import { getDocs, collection } from 'firebase/firestore';
+import { getDocs, collection, doc } from 'firebase/firestore';
 
 
 function App() {
@@ -16,7 +16,11 @@ function App() {
       // set movie list
       try {
         const data = await getDocs(moviesCollectionRef)
-        console.log(data)
+        const filteredData = data.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id
+        }))
+        console.log(filteredData)
       } catch (err) {
         console.error(err)
       }
