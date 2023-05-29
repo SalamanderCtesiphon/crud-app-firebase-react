@@ -20,7 +20,7 @@ function App() {
           ...doc.data(),
           id: doc.id
         }))
-        console.log(filteredData)
+        setMovieList(filteredData)
       } catch (err) {
         console.error(err)
       }
@@ -33,6 +33,15 @@ function App() {
   return (
     <div className="App">
       <Auth />
+
+      <div>
+        {movieList.map((movie) => (
+          <div key={movie.id}>
+            <h1>{movie.title}</h1>
+            <p>Date: {movie.releaseDate}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
